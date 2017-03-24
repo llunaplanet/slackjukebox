@@ -13,3 +13,7 @@ build:
         name: terraform init
         code: |
           cd terraform && terraform init
+    - script:
+        name: terraform init
+        code: |
+          cd terraform && terraform apply
