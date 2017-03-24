@@ -1,0 +1,11 @@
+box: node:alpine
+build:
+  steps:
+    - install-packages:
+        packages: unzip
+    - capgemini/terraform-install:
+        version: 0.9.1
+    - script:
+        name: terraform validate
+        code: |
+          cd terraform && terraform validate
