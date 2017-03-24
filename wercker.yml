@@ -9,3 +9,7 @@ build:
         name: terraform validate
         code: |
           cd terraform && terraform validate
+    - script:
+        name: terraform init
+        code: |
+          cd terraform && terraform init
