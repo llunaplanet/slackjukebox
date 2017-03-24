@@ -2,7 +2,6 @@ terraform {
     backend "s3" {
         bucket = "slackjukebox"
         key    = "terraform.tfstate"
-        region = "eu-west-1"
     }
 }
 
