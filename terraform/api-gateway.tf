@@ -23,4 +23,8 @@ module "slack_post" {
   lambda_name = "hello_world"
   account_id = "${data.aws_caller_identity.current.account_id}"
   region = "${var.aws_region}"
+
+   depends_on = [
+       "aws_lambda_function.hello_world"
+   ]
 }

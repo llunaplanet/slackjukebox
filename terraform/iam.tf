@@ -8,20 +8,23 @@ data "aws_iam_policy_document" "aws_iam_role" {
         identifiers = ["lambda.amazonaws.com"]
     }
   }
+}
 
-  statement {
-    effect = "Allow"
-    actions = [
-        "cloudwatch:*",
-        "events:*",
-        "lambda:*",
-        "logs:*",
-        "s3:*"
-    ]
-    resources = [
-      "*",
-    ]
-  }
+data "aws_iam_policy_document" "aws_iam_role" {
+
+    statement {
+      effect = "Allow"
+      actions = [
+          "cloudwatch:*",
+          "events:*",
+          "lambda:*",
+          "logs:*",
+          "s3:*"
+      ]
+      resources = [
+        "*",
+      ]
+    }
 }
 
 resource "aws_iam_role" "iam_role_for_lambda" {
