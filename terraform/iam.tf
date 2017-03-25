@@ -1,7 +1,7 @@
 data "aws_iam_policy_document" "aws_iam_role" {
 
   statement {
-    effect = "allow"
+    effect = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
         type = "Service"
@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "aws_iam_role" {
   }
 
   statement {
-    effect = "allow"
+    effect = "Allow"
     actions = [
         "cloudwatch:*",
         "events:*",
