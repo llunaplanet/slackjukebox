@@ -3,7 +3,7 @@ build:
   steps:
     - install-packages:
         packages: unzip
-    - capgemini/terraform-install:
+    - davidlluna/terraform-install:
         version: 0.9.1
     - script:
         name: terraform validate
