@@ -5,6 +5,10 @@ terraform {
     }
 }
 
+provider "aws" {
+  region = "${var.aws_region}"
+}
+
 resource "aws_dynamodb_table" "slackjukebox" {
   name           = "slackjukebox"
   read_capacity  = 5
