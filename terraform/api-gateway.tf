@@ -21,5 +21,5 @@ module "slack_post" {
   http_method = "GET"
   lambda_name = "${aws_lambda_function.hello_world.name}"
   account_id = "${data.aws_caller_identity.current.account_id}"
-  region = "us-west-1"
+  region = "${var.aws_region}"
 }
