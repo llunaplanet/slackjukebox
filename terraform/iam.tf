@@ -26,5 +26,5 @@ data "aws_iam_policy_document" "aws_iam_role" {
 
 resource "aws_iam_role" "iam_role_for_lambda" {
     name = "iam_role_for_slackjukebox_lambda"
-    assume_role_policy = "${aws_iam_policy_document.aws_iam_role.json}"
+    assume_role_policy = "${data.aws_iam_policy_document.aws_iam_role.json}"
 }
