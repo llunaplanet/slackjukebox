@@ -20,7 +20,7 @@ module "UsersPost" {
   resource_id = "${aws_api_gateway_resource.slack.id}"
   http_method = "GET"
   lambda_name = "create_user_lambda_funciton"
-  account_id = "1234567890"
+  account_id = "${data.aws_caller_identity.current.account_id}"
   region = "us-west-1"
   integration_request_template = "#set($inputRoot = $input.path('$')){}"
   request_model = "Empty"
