@@ -5,11 +5,6 @@ terraform {
     }
 }
 
-resource "aws_api_gateway_rest_api" "rest-api" {
-  name = "slackjukebox Endpoint"
-  description = "Endpoint for HTTPS Slack webhook"
-}
-
 resource "aws_dynamodb_table" "slackjukebox" {
   name           = "slackjukebox"
   read_capacity  = 5
