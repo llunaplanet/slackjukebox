@@ -11,8 +11,11 @@ resource "aws_api_gateway_resource" "slack_endpoint" {
   path_part = "slack"
 }
 
-# Call the module to attach a method along with its request/response/integration templates
-# This one creates a user.
+resource "aws_api_gateway_deployment" "slack_jukebox_deployment" {
+  depends_on = ["module.slack_post"]
+  rest_api_id = "${aws_api_gateway_rest_api.slack_jukebox_api.id}"
+  stage_name  = "v1"
+}
 
 module "slack_post" {
   source  = "./api_gateway_resource"
@@ -20,11 +23,7 @@ module "slack_post" {
   resource_id = "${aws_api_gateway_resource.slack_endpoint.id}"
   resource_path = "${aws_api_gateway_resource.slack_endpoint.path}"
   http_method = "GET"
-  lambda_name = "hello_world"
+  lambda_name = "${aws_lambda_function.hello_world.function_name}"
   account_id = "${data.aws_caller_identity.current.account_id}"
   region = "${var.aws_region}"
-
-   depends_on = [
-       "aws_lambda_function.hello_world"
-   ]
 }

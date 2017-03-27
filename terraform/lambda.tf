@@ -9,11 +9,11 @@ data "archive_file" "lambda_code_zip" {
 resource "aws_lambda_function" "hello_world" {
     filename = "${path.module}/../files/lambda_code.zip"
     function_name = "hello_world"
-    role = "${aws_iam_role.iam_role_for_lambda.id}"
+    role = "${aws_iam_role.iam_role_for_lambda.arn}"
     handler = "index.handler"
     source_code_hash = "${data.archive_file.lambda_code_zip.output_base64sha256}"
     timeout = 120
-    runtime = "node6.10"
+    runtime = "nodejs6.10"
     environment {
         variables = {
             DB_NAME = "${aws_dynamodb_table.slackjukebox.name}"
