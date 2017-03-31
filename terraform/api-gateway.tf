@@ -22,7 +22,7 @@ module "slack_post" {
   rest_api_id = "${aws_api_gateway_rest_api.slack_jukebox_api.id}"
   resource_id = "${aws_api_gateway_resource.slack_endpoint.id}"
   resource_path = "${aws_api_gateway_resource.slack_endpoint.path}"
-  http_method = "GET"
+  http_method = "POST"
   lambda_name = "${aws_lambda_function.hello_world.function_name}"
   account_id = "${data.aws_caller_identity.current.account_id}"
   region = "${var.aws_region}"
